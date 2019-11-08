@@ -1,11 +1,14 @@
 # ENGR-1411-Project
 # Fox Fox Foo
+
 ---
 ## Brainstorming
-1.) List of possible programs:  Map distance tracker, calender, passionWorkplace, video game, calculator, website, meal exchanges,
+###
+List of possible programs:  Map distance tracker, calender, passionWorkplace, video game, calculator, website, meal exchanges,
 degree, meeting place finder.
-2.) In case of any need for google maps: https://github.com/googlemaps/google-maps-services-java
-3.) We chose the meeting place finder.
+In case of any need for google maps: https://github.com/googlemaps/google-maps-services-java
+We chose the meeting place finder
+
 ---
 ## The Engineering Design Process
 
