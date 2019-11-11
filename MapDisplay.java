@@ -18,14 +18,14 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+public class MapDisplay extends JFrame implements ActionListener {
 
-public class MapDisplay extends JFrame implements ActionListener{
-	
 	private static final int AMOUNT_OF_LOCATIONS = 8;
+	private static int currentPage;
 
 	// TODO: Finish implementing this...
 	private static final long serialVersionUID = 1L;
-	
+
 	JPanel panel0 = new JPanel();
 	JPanel panel1 = new JPanel();
 	JPanel panel2 = new JPanel();
@@ -37,41 +37,83 @@ public class MapDisplay extends JFrame implements ActionListener{
 	JTextField secondBox = new JTextField();
 	SpinnerNumberModel spinnerModel = new SpinnerNumberModel(3, 1, 10, 1);
 	JSpinner spinner = new JSpinner(spinnerModel);
-	JLabel title = new JLabel("Meeting Finder");
+	JLabel title = new JLabel("Meeting Place Finder");
 	HashMap<String, Point> locations = new HashMap<>();
-	
+
 	public MapDisplay(String header) {
-		
+
 		super(header);
-		setSize(400, 400);
-		setVisible(true);
-		setResizable(false);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(new GridLayout(5, 0));
-		
-		panel0.add(title);
-		add(panel0);
-		
-		firstBox.setEditable(false);
-		firstBox.setText("Insert the number of people:");
-		panel1.add(firstBox);
-		panel1.add(spinner);
-		add(panel1);
-		
-		nextButton.addActionListener(this);
-		panel2.add(nextButton);
-		add(panel2);
-		
-		
-		
+		currentPage = 1;
+
+		if (currentPage == 1) {
+			this.setSize(300, 300);
+			this.setVisible(true);
+			this.setResizable(false);
+			this.setLocationRelativeTo(null);
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setLayout(new GridLayout(4, 0));
+
+			panel0.add(title);
+			this.add(panel0);
+
+			firstBox.setEditable(false);
+			firstBox.setText("Insert the number of people:");
+			panel1.add(firstBox);
+			panel1.add(spinner);
+			this.add(panel1);
+
+			nextButton.addActionListener(this);
+			panel2.add(nextButton);
+			this.add(panel2);
+			secondBox.setEditable(false);
+			secondBox.setText("" + currentPage);
+			panel3.add(secondBox);
+			this.add(panel3);
+		}
+		if (currentPage == 2) {
+			this.setSize(400, 400);
+			this.setVisible(true);
+			this.setResizable(false);
+			this.setLocationRelativeTo(null);
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setLayout(new GridLayout(3, 0));
+
+			panel0.add(title);
+			this.add(panel0);
+
+			firstBox.setEditable(false);
+			firstBox.setText("Insert the number of people:");
+			panel1.add(firstBox);
+			panel1.add(spinner);
+			this.add(panel1);
+
+			nextButton.addActionListener(this);
+			panel2.add(nextButton);
+			this.add(panel2);
+			
+			secondBox.setEditable(false);
+			secondBox.setText("" + currentPage);
+			panel3.add(secondBox);
+			this.add(panel3);
+		}
+		if (currentPage == 3) {
+
+		}
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		if (currentPage == 1) {
+			currentPage = 2;
+			secondBox.setText("" + currentPage);
+		} else if (currentPage == 2) {
+			currentPage = 3;
+			secondBox.setText("" + currentPage);
+		} else {
+			currentPage = 1;
+			secondBox.setText("" + currentPage);
+		}
 	}
-	
-	
+
 }

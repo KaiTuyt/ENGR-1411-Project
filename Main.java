@@ -1,3 +1,4 @@
+import javax.swing.JFrame;
 
 public class Main {
 
@@ -8,5 +9,6 @@ public class Main {
 		// sdfogjs
 		System.out.println("HI");
 		System.out.println("^_^");
+		System.out.println(JFrame.EXIT_ON_CLOSE);
 	}
 }
