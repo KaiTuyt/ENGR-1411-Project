@@ -6,9 +6,8 @@ public class Main {
 
 		//TODO: Implement this...
 		MapDisplay map = new MapDisplay("Map");
-		// sdfogjs
-		System.out.println("HI");
-		System.out.println("^_^");
-		System.out.println(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
 	}
 }
