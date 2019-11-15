@@ -30,55 +30,63 @@ public class MapDisplay extends JFrame implements ActionListener {
 
 	JPanel titlePanel = new JPanel();
 	JPanel instructionPanel = new JPanel();
-	JPanel panel2 = new JPanel();
+	JPanel buttonPanel = new JPanel();
 	JPanel pageNumberPanel = new JPanel();
 	JPanel coordinatesPanel = new JPanel();
+	JPanel errorPanel = new JPanel();
+	JLabel errorStatus = new JLabel();
 	JButton startButton = new JButton("Start!");
 	JButton nextButton = new JButton("Next ->");
 	JButton calculateButton = new JButton("Calculate Distance");
 	JButton quitButton = new JButton("Quit Program");
 	JTextField instructionBox = new JTextField();
-	JTextField pageNumber = new JTextField();
+	JLabel pageNumber = new JLabel();
 	SpinnerNumberModel spinnerModel = new SpinnerNumberModel(3, 1, 10, 1);
 	JSpinner spinner = new JSpinner(spinnerModel);
-	JLabel title = new JLabel("Meeting Place Finder");
+	JLabel title = new JLabel("<html><h2>Meeting Place Finder</h2></html>");
 	HashMap<String, Point> locations = new HashMap<>();
-	JPanel field;
-	ArrayList<JPanel> fields;
-	JTextField person;
+	JPanel personCoordinates;
+	ArrayList<JPanel> personCoordinatesList;
+	JLabel personLabel;
+	JTextField latitude;
+	JTextField latCoordinates;
+	JTextField longitude;
+	JTextField longCoordinates;
 
 	public MapDisplay(String header) {
-		
-		//Use html
-		
+
+		// NOTE: Use <html> to make stuff look fancy :)
+
 		super(header);
 		currentPage = 0;
-		
+
 		this.setSize(700, 200);
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new GridLayout(3, 0));
-		
+
 		titlePanel.add(title);
 		this.add(titlePanel);
-		
+
 		instructionBox.setEditable(false);
-		instructionBox.setText("Welcome! This program will be able to determine, based on the amount of people, a location for everyone to meet at.");
+		instructionBox.setText(
+				"Welcome! This program will be able to determine, based on the amount of people, a location for everyone to meet at.");
 		instructionPanel.add(instructionBox);
 		this.add(instructionPanel);
-		
+
 		startButton.addActionListener(this);
-		panel2.add(startButton);
-		this.add(panel2);
+		buttonPanel.add(startButton);
+		this.add(buttonPanel);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if (currentPage == 1) { //Move to second page of inputs
-			amountOfPeople = (Integer)spinner.getValue();
-			this.setSize(800, 500);
+		if (currentPage == 1) { // Move to second page of inputs
+			amountOfPeople = (Integer) spinner.getValue();
+
+			this.setSize(800, 575);
 			this.setVisible(true);
 			this.setResizable(false);
 			this.setLocationRelativeTo(null);
@@ -90,42 +98,73 @@ public class MapDisplay extends JFrame implements ActionListener {
 
 			instructionPanel.remove(spinner);
 			instructionBox.setEditable(false);
-			instructionBox.setText("Insert the coordinates of each person:");
+			instructionBox.setText("Insert the coordinates of each person.");
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
-			
-			fields = new ArrayList<JPanel>();
+
+			personCoordinatesList = new ArrayList<JPanel>();
 			for (int i = 1; i <= amountOfPeople; i++) {
-				field = new JPanel();
-				person = new JTextField();
-				person.setText("Person " + i + ": ");
-				person.setEditable(false);
-				JTextField coordinates = new JTextField();
-				coordinates.setEditable(true);
-				coordinates.setColumns(20);
-				field.add(person);
-				field.add(coordinates);
-				fields.add(field);
-				this.add(field);
+				personCoordinates = new JPanel();
+				personLabel = new JLabel("<html><i>Person " + i + ": </i></hmtl>");
+
+				latitude = new JTextField("Latitude: ");
+				latitude.setEditable(false);
+
+				latCoordinates = new JTextField();
+				latCoordinates.setEditable(true);
+				latCoordinates.setColumns(20);
+
+				longitude = new JTextField("Longitude: ");
+				longitude.setEditable(false);
+
+				longCoordinates = new JTextField();
+				longCoordinates.setEditable(true);
+				longCoordinates.setColumns(20);
+
+				personCoordinates.add(personLabel);
+				personCoordinates.add(latitude);
+				personCoordinates.add(latCoordinates);
+				personCoordinates.add(longitude);
+				personCoordinates.add(longCoordinates);
+				personCoordinatesList.add(personCoordinates);
+
+				this.add(personCoordinates);
 			}
 
-			panel2.remove(nextButton);
+			buttonPanel.remove(nextButton);
 			calculateButton.addActionListener(this);
-			panel2.add(calculateButton);
-			this.add(panel2);
+			buttonPanel.add(calculateButton);
+			this.add(buttonPanel);
 
-			pageNumber.setEditable(false);
 			currentPage = 2;
 			pageNumber.setText("" + currentPage);
 			pageNumberPanel.add(pageNumber);
 			this.add(pageNumberPanel);
 
-		} else if (currentPage == 2) { //Move to output page
-			
-			for (JPanel item: fields) {
+		} else if (currentPage == 2) { // Move to output page
+
+			int count = 0;
+			for (JPanel item : personCoordinatesList) {
+				Point p = new Point();
+				try {
+					p.setLocation(Double.valueOf(latCoordinates.getText()), Double.valueOf(longCoordinates.getText()));
+				} catch (Exception E) { //Incorrect formatting
+
+					this.setSize(300, 300);
+					this.setVisible(true);
+					this.setResizable(false);
+					this.setLocationRelativeTo(null);
+					this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					this.setLayout(new GridLayout(4, 0));
+
+					titlePanel.add(title);
+					this.add(titlePanel);
+					
+				}
+				locations.put("Person " + ++count, p);
 				this.remove(item);
 			}
-			
+
 			this.setSize(600, 450);
 			this.setVisible(true);
 			this.setResizable(false);
@@ -142,18 +181,18 @@ public class MapDisplay extends JFrame implements ActionListener {
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
 
-			panel2.remove(calculateButton);
+			buttonPanel.remove(calculateButton);
 			quitButton.addActionListener(this);
-			panel2.add(quitButton);
-			this.add(panel2);
+			buttonPanel.add(quitButton);
+			this.add(buttonPanel);
 
-			pageNumber.setEditable(false);
 			currentPage = 3;
 			pageNumber.setText("" + currentPage);
 			pageNumberPanel.add(pageNumber);
 			this.add(pageNumberPanel);
 
-		} else if (currentPage == 0) { //Move to first page of inputs
+		} else if (currentPage == 0) { // Move to first page of inputs
+
 			this.setSize(300, 300);
 			this.setVisible(true);
 			this.setResizable(false);
@@ -170,17 +209,17 @@ public class MapDisplay extends JFrame implements ActionListener {
 			instructionPanel.add(spinner);
 			this.add(instructionPanel);
 
-			panel2.remove(startButton);
+			buttonPanel.remove(startButton);
 			nextButton.addActionListener(this);
-			panel2.add(nextButton);
-			this.add(panel2);
-			
-			pageNumber.setEditable(false);
+			buttonPanel.add(nextButton);
+			this.add(buttonPanel);
+
 			currentPage = 1;
 			pageNumber.setText("" + currentPage);
 			pageNumberPanel.add(pageNumber);
 			this.add(pageNumberPanel);
-		} else if (currentPage == 3) {
+
+		} else if (currentPage == 3) { // Quit program
 			this.dispose();
 		}
 	}
