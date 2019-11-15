@@ -8,6 +8,5 @@ public class Main {
 		MapDisplay map = new MapDisplay("Map");
 		
 		
-		
 	}
 }
