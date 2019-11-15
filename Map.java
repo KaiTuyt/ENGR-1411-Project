@@ -1,7 +1,7 @@
+import java.util.HashMap;
 
 public class Map {
-	
-	//TODO: Implement this...
+		
 	
 //	// Java program to calculate Distance Between 
 //	// Two Points on Earth 

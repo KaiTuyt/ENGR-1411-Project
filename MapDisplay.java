@@ -21,7 +21,7 @@ import javax.swing.event.ChangeListener;
 
 public class MapDisplay extends JFrame implements ActionListener {
 
-	private static final int AMOUNT_OF_LOCATIONS = 8;
+	private static final int AMOUNT_OF_LOCATIONS = 27; // So far...
 	private static int currentPage;
 	private static int amountOfPeople;
 
@@ -44,15 +44,16 @@ public class MapDisplay extends JFrame implements ActionListener {
 	SpinnerNumberModel spinnerModel = new SpinnerNumberModel(3, 1, 10, 1);
 	JSpinner spinner = new JSpinner(spinnerModel);
 	JLabel title = new JLabel("<html><h2>Meeting Place Finder</h2></html>");
-	HashMap<String, Point> locations = new HashMap<>();
 	JPanel personCoordinates;
 	ArrayList<JPanel> personCoordinatesList;
+	ArrayList<JTextField> coordinates = new ArrayList<>();
 	JLabel personLabel;
 	JTextField latitude;
 	JTextField latCoordinates;
 	JTextField longitude;
 	JTextField longCoordinates;
-
+	double[][] locations;
+	
 	public MapDisplay(String header) {
 
 		// NOTE: Use <html> to make stuff look fancy :)
@@ -98,7 +99,7 @@ public class MapDisplay extends JFrame implements ActionListener {
 
 			instructionPanel.remove(spinner);
 			instructionBox.setEditable(false);
-			instructionBox.setText("Insert the coordinates of each person.");
+			instructionBox.setText("Please insert valid coordinates for each person.");
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
 
@@ -124,13 +125,15 @@ public class MapDisplay extends JFrame implements ActionListener {
 				personCoordinates.add(personLabel);
 				personCoordinates.add(latitude);
 				personCoordinates.add(latCoordinates);
+				coordinates.add(latCoordinates);
 				personCoordinates.add(longitude);
 				personCoordinates.add(longCoordinates);
+				coordinates.add(longCoordinates);
 				personCoordinatesList.add(personCoordinates);
-
 				this.add(personCoordinates);
+				
 			}
-
+			
 			buttonPanel.remove(nextButton);
 			calculateButton.addActionListener(this);
 			buttonPanel.add(calculateButton);
@@ -140,28 +143,19 @@ public class MapDisplay extends JFrame implements ActionListener {
 			pageNumber.setText("" + currentPage);
 			pageNumberPanel.add(pageNumber);
 			this.add(pageNumberPanel);
+			
 
 		} else if (currentPage == 2) { // Move to output page
-
-			int count = 0;
+			
+			locations = new double[amountOfPeople][2];
+			for (int i = 0; i < coordinates.size(); i++) {
+				if (i % 2 == 0)
+					locations[i/2][0] = Double.valueOf(coordinates.get(i).getText());
+				else
+					locations[i/2][1] = Double.valueOf(coordinates.get(i).getText());
+			}
+			
 			for (JPanel item : personCoordinatesList) {
-				Point p = new Point();
-				try {
-					p.setLocation(Double.valueOf(latCoordinates.getText()), Double.valueOf(longCoordinates.getText()));
-				} catch (Exception E) { //Incorrect formatting
-
-					this.setSize(300, 300);
-					this.setVisible(true);
-					this.setResizable(false);
-					this.setLocationRelativeTo(null);
-					this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					this.setLayout(new GridLayout(4, 0));
-
-					titlePanel.add(title);
-					this.add(titlePanel);
-					
-				}
-				locations.put("Person " + ++count, p);
 				this.remove(item);
 			}
 
