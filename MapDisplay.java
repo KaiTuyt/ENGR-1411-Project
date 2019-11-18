@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Set;
 
 import javax.swing.ButtonGroup;
@@ -92,7 +94,7 @@ public class MapDisplay extends JFrame implements ActionListener {
 		if (currentPage == 1) { // Move to second page of inputs
 			amountOfPeople = (Integer) spinner.getValue();
 
-			this.setSize(800, 575);
+			this.setSize(600, 575);
 			this.setVisible(true);
 			this.setResizable(false);
 			this.setLocationRelativeTo(null);
@@ -139,20 +141,20 @@ public class MapDisplay extends JFrame implements ActionListener {
 		} else if (currentPage == 2) { // Move to output page
 
 			chosenLocations = new ArrayList<>();
-			for (JComboBox box: boxList) {
-				chosenLocations.add((String)box.getSelectedItem());
+			for (JComboBox box : boxList) {
+				chosenLocations.add((String) box.getSelectedItem());
 			}
-			
+
 			for (JPanel item : personList) {
 				this.remove(item);
 			}
 
-			this.setSize(600, 450);
+			this.setSize(500, 450);
 			this.setVisible(true);
 			this.setResizable(false);
 			this.setLocationRelativeTo(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setLayout(new GridLayout(5, 0));
+			this.setLayout(new GridLayout(6, 0));
 
 			titlePanel.add(title);
 			this.add(titlePanel);
@@ -162,13 +164,25 @@ public class MapDisplay extends JFrame implements ActionListener {
 			instructionBox.remove(spinner);
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
-			
-			Map m = new Map();
-			
 
-			JLabel latLocation = new JLabel("Latitude: " /** + latitude of location**/);
+			Map map = new Map();
+			double[][] coordinates = new double[amountOfPeople][2];
+			for (int i = 0; i < amountOfPeople; i++) {
+				String currentPersonLocation = chosenLocations.get(i);
+				coordinates[i] = map.getKeyFromValue(currentPersonLocation);
+			}
+			
+			double[] center = map.center(coordinates);
+			String closestBuilding = map.closestBuilding(coordinates);
+			
+			JPanel panelPanel = new JPanel();
+			JLabel bestLocation = new JLabel("<html><h2>" + closestBuilding + "</h2></html>");
+			panelPanel.add(bestLocation);
+			this.add(panelPanel);
+
+			JLabel latLocation = new JLabel("Latitude: " + center[0]);
 			locationPanel.add(latLocation);
-			JLabel longLocation = new JLabel("Longitude: " /** + longitude of location**/);
+			JLabel longLocation = new JLabel("Longitude: " + center[1]);
 			locationPanel.add(longLocation);
 			this.add(locationPanel);
 
