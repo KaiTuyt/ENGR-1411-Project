@@ -110,7 +110,6 @@ public class Map {
 		campusLocations.put(new double[] {}, "Murray Case Sells Swim Complex");
 		campusLocations.put(new double[] {}, "Andrew M. Coats Hall");
 		campusLocations.put(new double[] {}, "Kraettli Apartments");
-<<<<<<< HEAD
 		campusLocations.put(new double[] {}, "Women’s Softball Facility");
 		campusLocations.put(new double[] {}, "OU Foundation");
 		campusLocations.put(new double[] {}, "Sam Noble Oklahoma Museum of Natural History");
@@ -118,21 +117,11 @@ public class Map {
 		campusLocations.put(new double[] {}, "L. Dale Mitchell Baseball Park");
 		campusLocations.put(new double[] {}, "Sam Viersen Gymnastics Center");
 		campusLocations.put(new double[] {}, "Charlie Coe Golf Learning Center");
-		campusLocations.put(new double[] {}, "Fears Structural Engineering Lab");
-		campusLocations.put(new double[] {}, "Joseph K. Lester Police Headquarters");
-		campusLocations.put(new double[] {}, "Ceramic Kiln Facility");
-		campusLocations.put(new double[] {}, "Lloyd Noble Center");
-		campusLocations.put(new double[] {}, "Stephenson Research Center");
-		campusLocations.put(new double[] {}, "National Weather Center");
-		campusLocations.put(new double[] {}, "Oil Well Blowout School");
-=======
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
->>>>>>> 529681a38b90eef1ac37b5ecaf01940459eae4bb
+		campusLocations.put(new double[] {35.189914, -97.437843}, "Fears Structural Engineering Lab");
+		campusLocations.put(new double[] {35.190115, -97.435175}, "Joseph K. Lester Police Headquarters");
+		campusLocations.put(new double[] {35.187714, -97.444058}, "Lloyd Noble Center");
+		campusLocations.put(new double[] {35.183880, -97.440321}, "Stephenson Research Center");
+		campusLocations.put(new double[] {35.181543, -97.439992}, "National Weather Center");
 	}
 	
 	// This method returns the center location for a list of n locations.
