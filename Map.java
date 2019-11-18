@@ -5,6 +5,10 @@ public class Map {
 	// This HashMap contains the location of each building on campus
 	HashMap<double[], String> campusLocations = new HashMap<double[], String>();
 	
+	public HashMap<double[], String> getCampusLocations() {
+		return campusLocations;
+	}
+
 	public Map() {
 		campusLocations.put(new double[] {35.210985, -97.441888}, "Devon Energy Hall");
 		campusLocations.put(new double[] {35.210454, -97.441687}, "EPF");
@@ -12,14 +16,14 @@ public class Map {
 		campusLocations.put(new double[] {35.211046, -97.442727}, "Gallogly");
 		campusLocations.put(new double[] {35.210530, -97.443038}, "Felgar");
 		campusLocations.put(new double[] {35.210792, -97.440442}, "Sarkeys energy center");
-		campusLocations.put(new double[] {35.210608, -97.448287}, "Catlett");
+		campusLocations.put(new double[] {35.210608, -97.448287}, "Catlett"); //1
 		campusLocations.put(new double[] {35.208180, -97.445840}, "Bizzell");
 		campusLocations.put(new double[] {35.209961, -97.444204}, "Union");
 		campusLocations.put(new double[] {35.209987, -97.444258}, "Quiznos");
 		campusLocations.put(new double[] {35.207289, -97.446609}, "Nielsen");
 		campusLocations.put(new double[] {35.204456, -97.446552}, "Dale");
 		campusLocations.put(new double[] {35.209562, -97.447279}, "Physical Sciences Centers");
-		campusLocations.put(new double[] {35.208036, -97.444448}, "Adams Hall");
+		campusLocations.put(new double[] {35.208036, -97.444448}, "Adams Hall"); //2
 		campusLocations.put(new double[] {35.209066, -97.445068}, "Carnegie Building");
 		campusLocations.put(new double[] {35.210535, -97.444224}, "Carpenter Hall");
 		campusLocations.put(new double[] {35.209648, -97.446660}, "Chemistry Buildings");
@@ -122,6 +126,7 @@ public class Map {
 	public double distFrom(double[] locTo, double[] locFrom) {
 		return Math.sqrt(Math.pow(locTo[0] - locFrom[0], 2) + Math.pow(locTo[1] - locFrom[1], 2));
 	}
+	
 	
 }
 

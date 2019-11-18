@@ -3,10 +3,14 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Set;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,13 +25,13 @@ import javax.swing.event.ChangeListener;
 
 public class MapDisplay extends JFrame implements ActionListener {
 
-	private static final int AMOUNT_OF_LOCATIONS = 27; // So far...
 	private static int currentPage;
 	private static int amountOfPeople;
 
 	// TODO: Finish implementing this...
 	private static final long serialVersionUID = 1L;
 
+	JLabel title = new JLabel("<html><h2>Meeting Place Finder</h2></html>");
 	JPanel titlePanel = new JPanel();
 	JPanel instructionPanel = new JPanel();
 	JPanel buttonPanel = new JPanel();
@@ -43,17 +47,16 @@ public class MapDisplay extends JFrame implements ActionListener {
 	JLabel pageNumber = new JLabel();
 	SpinnerNumberModel spinnerModel = new SpinnerNumberModel(3, 1, 10, 1);
 	JSpinner spinner = new JSpinner(spinnerModel);
-	JLabel title = new JLabel("<html><h2>Meeting Place Finder</h2></html>");
+	Map m = new Map();
+	Collection<String> locationsList = m.getCampusLocations().values();
+	JComboBox locationsBox;
 	JPanel personCoordinates;
-	ArrayList<JPanel> personCoordinatesList;
-	ArrayList<JTextField> coordinates = new ArrayList<>();
+	ArrayList<JPanel> personList;
+	ArrayList<JComboBox> boxList;
+	ArrayList<String> chosenLocations;
 	JLabel personLabel;
-	JTextField latitude;
-	JTextField latCoordinates;
-	JTextField longitude;
-	JTextField longCoordinates;
-	double[][] locations;
-	
+	JPanel locationPanel = new JPanel();
+
 	public MapDisplay(String header) {
 
 		// NOTE: Use <html> to make stuff look fancy :)
@@ -71,12 +74,14 @@ public class MapDisplay extends JFrame implements ActionListener {
 		titlePanel.add(title);
 		this.add(titlePanel);
 
+		instructionBox.setVisible(true);
 		instructionBox.setEditable(false);
 		instructionBox.setText(
 				"Welcome! This program will be able to determine, based on the amount of people, a location for everyone to meet at.");
 		instructionPanel.add(instructionBox);
 		this.add(instructionPanel);
 
+		startButton.setVisible(true);
 		startButton.addActionListener(this);
 		buttonPanel.add(startButton);
 		this.add(buttonPanel);
@@ -97,43 +102,30 @@ public class MapDisplay extends JFrame implements ActionListener {
 			titlePanel.add(title);
 			this.add(titlePanel);
 
+			locationsBox = new JComboBox(locationsList.toArray());
+
 			instructionPanel.remove(spinner);
 			instructionBox.setEditable(false);
-			instructionBox.setText("Please insert valid coordinates for each person.");
+			instructionBox.setText("Please insert each person's location on campus.");
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
 
-			personCoordinatesList = new ArrayList<JPanel>();
+			boxList = new ArrayList<JComboBox>();
+			personList = new ArrayList<JPanel>();
 			for (int i = 1; i <= amountOfPeople; i++) {
 				personCoordinates = new JPanel();
 				personLabel = new JLabel("<html><i>Person " + i + ": </i></hmtl>");
 
-				latitude = new JTextField("Latitude: ");
-				latitude.setEditable(false);
-
-				latCoordinates = new JTextField();
-				latCoordinates.setEditable(true);
-				latCoordinates.setColumns(20);
-
-				longitude = new JTextField("Longitude: ");
-				longitude.setEditable(false);
-
-				longCoordinates = new JTextField();
-				longCoordinates.setEditable(true);
-				longCoordinates.setColumns(20);
+				locationsBox = new JComboBox(locationsList.toArray());
 
 				personCoordinates.add(personLabel);
-				personCoordinates.add(latitude);
-				personCoordinates.add(latCoordinates);
-				coordinates.add(latCoordinates);
-				personCoordinates.add(longitude);
-				personCoordinates.add(longCoordinates);
-				coordinates.add(longCoordinates);
-				personCoordinatesList.add(personCoordinates);
+				personCoordinates.add(locationsBox);
+				boxList.add(locationsBox);
+				personList.add(personCoordinates);
 				this.add(personCoordinates);
-				
+
 			}
-			
+
 			buttonPanel.remove(nextButton);
 			calculateButton.addActionListener(this);
 			buttonPanel.add(calculateButton);
@@ -143,19 +135,15 @@ public class MapDisplay extends JFrame implements ActionListener {
 			pageNumber.setText("" + currentPage);
 			pageNumberPanel.add(pageNumber);
 			this.add(pageNumberPanel);
-			
 
 		} else if (currentPage == 2) { // Move to output page
-			
-			locations = new double[amountOfPeople][2];
-			for (int i = 0; i < coordinates.size(); i++) {
-				if (i % 2 == 0)
-					locations[i/2][0] = Double.valueOf(coordinates.get(i).getText());
-				else
-					locations[i/2][1] = Double.valueOf(coordinates.get(i).getText());
+
+			chosenLocations = new ArrayList<>();
+			for (JComboBox box: boxList) {
+				chosenLocations.add((String)box.getSelectedItem());
 			}
 			
-			for (JPanel item : personCoordinatesList) {
+			for (JPanel item : personList) {
 				this.remove(item);
 			}
 
@@ -164,7 +152,7 @@ public class MapDisplay extends JFrame implements ActionListener {
 			this.setResizable(false);
 			this.setLocationRelativeTo(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setLayout(new GridLayout(4, 0));
+			this.setLayout(new GridLayout(5, 0));
 
 			titlePanel.add(title);
 			this.add(titlePanel);
@@ -174,6 +162,15 @@ public class MapDisplay extends JFrame implements ActionListener {
 			instructionBox.remove(spinner);
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
+			
+			Map m = new Map();
+			
+
+			JLabel latLocation = new JLabel("Latitude: " /** + latitude of location**/);
+			locationPanel.add(latLocation);
+			JLabel longLocation = new JLabel("Longitude: " /** + longitude of location**/);
+			locationPanel.add(longLocation);
+			this.add(locationPanel);
 
 			buttonPanel.remove(calculateButton);
 			quitButton.addActionListener(this);
