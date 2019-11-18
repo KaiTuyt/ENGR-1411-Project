@@ -120,6 +120,24 @@ public class Map {
 		campusLocations.put(new double[] {}, "Murray Case Sells Swim Complex");
 		campusLocations.put(new double[] {}, "Andrew M. Coats Hall");
 		campusLocations.put(new double[] {}, "Kraettli Apartments");
+		campusLocations.put(new double[] {}, "Women’s Softball Facility");
+		campusLocations.put(new double[] {}, "OU Foundation");
+		campusLocations.put(new double[] {}, "Sam Noble Oklahoma Museum of Natural History");
+		campusLocations.put(new double[] {}, "Our Children’s World Learning Center");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "");
 		campusLocations.put(new double[] {}, "");
 		campusLocations.put(new double[] {}, "");
 		campusLocations.put(new double[] {}, "");
@@ -164,6 +182,15 @@ public class Map {
 	public double distFrom(double[] locTo, double[] locFrom) {
 		return Math.sqrt(Math.pow(locTo[0] - locFrom[0], 2) + Math.pow(locTo[1] - locFrom[1], 2));
 	}
+	
+	public double[] getKeyFromValue(String location) {
+	    for (double[] key : campusLocations.keySet()) {
+	      if (campusLocations.get(key).equals(location)) {
+	        return key;
+	      }
+	    }
+	    return null;
+	  }
 	
 	
 }
