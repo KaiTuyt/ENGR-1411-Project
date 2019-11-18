@@ -42,8 +42,8 @@ public class Map {
 		campusLocations.put(new double[] {35.207911, -97.443662}, "Price Hall");
 		campusLocations.put(new double[] {35.207184, -97.444566}, "Richards Hall");
 		campusLocations.put(new double[] {35.207217, -97.448262}, "Zarrow Hall");
-		campusLocations.put(new double[] {}, "Old Faculty Club");
-		campusLocations.put(new double[] {}, "Boyd House");
+		campusLocations.put(new double[] {35.211834, -97.446430}, "Old Faculty Club");
+		campusLocations.put(new double[] {35.211661, -97.446135}, "Boyd House");
 		campusLocations.put(new double[] {}, "Whitehand Hall");
 		campusLocations.put(new double[] {}, "Fred Jones Art Center");
 		campusLocations.put(new double[] {}, "Carson Engineering Center");
