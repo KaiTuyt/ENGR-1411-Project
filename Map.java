@@ -91,11 +91,10 @@ public class Map {
 		campusLocations.put(new double[] {35.204586, -97.438280}, "Mosier Indoor Athletic Facility");
 		campusLocations.put(new double[] {35.204928, -97.438898}, "Everest Training Center");
 		campusLocations.put(new double[] {35.203622, -97.446313}, "Cate Center");
-		campusLocations.put(new double[] {}, "David L. Boren Hall");
-		campusLocations.put(new double[] {}, "Henderson-Tolson Cultural Center");
-		campusLocations.put(new double[] {}, "Landscape & Grounds Bldg");
-		campusLocations.put(new double[] {}, "Adams Center");
-		campusLocations.put(new double[] {}, "Walker Tower");
+		campusLocations.put(new double[] {35.203312, -97.444969}, "David L. Boren Hall");
+		campusLocations.put(new double[] {35.202863, -97.443872}, "Henderson-Tolson Cultural Center");
+		campusLocations.put(new double[] {35.201710, -97.446514}, "Adams Center");
+		campusLocations.put(new double[] {35.201670, -97.444954}, "Walker Tower");
 		campusLocations.put(new double[] {}, "Huston Huffman Center");
 		campusLocations.put(new double[] {}, "Couch Center Cafeteria");
 		campusLocations.put(new double[] {}, "Couch Center South");
@@ -110,7 +109,6 @@ public class Map {
 		campusLocations.put(new double[] {}, "Murray Case Sells Swim Complex");
 		campusLocations.put(new double[] {}, "Andrew M. Coats Hall");
 		campusLocations.put(new double[] {}, "Kraettli Apartments");
-<<<<<<< HEAD
 		campusLocations.put(new double[] {}, "Women’s Softball Facility");
 		campusLocations.put(new double[] {}, "OU Foundation");
 		campusLocations.put(new double[] {}, "Sam Noble Oklahoma Museum of Natural History");
@@ -125,14 +123,6 @@ public class Map {
 		campusLocations.put(new double[] {}, "Stephenson Research Center");
 		campusLocations.put(new double[] {}, "National Weather Center");
 		campusLocations.put(new double[] {}, "Oil Well Blowout School");
-=======
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
->>>>>>> 529681a38b90eef1ac37b5ecaf01940459eae4bb
 	}
 	
 	// This method returns the center location for a list of n locations.
