@@ -124,26 +124,16 @@ public class Map {
 		campusLocations.put(new double[] {}, "OU Foundation");
 		campusLocations.put(new double[] {}, "Sam Noble Oklahoma Museum of Natural History");
 		campusLocations.put(new double[] {}, "Our Children’s World Learning Center");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
-		campusLocations.put(new double[] {}, "");
+		campusLocations.put(new double[] {}, "L. Dale Mitchell Baseball Park");
+		campusLocations.put(new double[] {}, "Sam Viersen Gymnastics Center");
+		campusLocations.put(new double[] {}, "Charlie Coe Golf Learning Center");
+		campusLocations.put(new double[] {}, "Fears Structural Engineering Lab");
+		campusLocations.put(new double[] {}, "Joseph K. Lester Police Headquarters");
+		campusLocations.put(new double[] {}, "Ceramic Kiln Facility");
+		campusLocations.put(new double[] {}, "Lloyd Noble Center");
+		campusLocations.put(new double[] {}, "Stephenson Research Center");
+		campusLocations.put(new double[] {}, "National Weather Center");
+		campusLocations.put(new double[] {}, "Oil Well Blowout School");
 	}
 	
 	// This method returns the center location for a list of n locations.
