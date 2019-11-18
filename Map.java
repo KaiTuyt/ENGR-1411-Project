@@ -97,6 +97,7 @@ public class Map {
 		return new double[] {xSum/locations.length, ySum/locations.length};
 	}
 	
+	// This method returns the closest building to a center point of multiple locations.
 	public String closestBuilding(double[][] locations) {
 		//Finds the center locations
 		double[] center = center(locations);
@@ -117,6 +118,7 @@ public class Map {
 		return campusLocations.get(closestBuildingLoc);
 	}
 	
+	// This computes the distance between two points in (x, y)
 	public double distFrom(double[] locTo, double[] locFrom) {
 		return Math.sqrt(Math.pow(locTo[0] - locFrom[0], 2) + Math.pow(locTo[1] - locFrom[1], 2));
 	}
