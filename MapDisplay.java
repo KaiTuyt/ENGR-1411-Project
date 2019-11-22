@@ -30,7 +30,6 @@ public class MapDisplay extends JFrame implements ActionListener {
 	private static int currentPage;
 	private static int amountOfPeople;
 
-	// TODO: Finish implementing this...
 	private static final long serialVersionUID = 1L;
 
 	JLabel title = new JLabel("<html><h2>Meeting Place Finder</h2></html>");
@@ -79,7 +78,7 @@ public class MapDisplay extends JFrame implements ActionListener {
 		instructionBox.setVisible(true);
 		instructionBox.setEditable(false);
 		instructionBox.setText(
-				"Welcome! This program will be able to determine, based on the amount of people, a location for everyone to meet at.");
+				"Welcome! This program will be able to determine, \nbased on the amount of people, a location for everyone to meet at.");
 		instructionPanel.add(instructionBox);
 		this.add(instructionPanel);
 

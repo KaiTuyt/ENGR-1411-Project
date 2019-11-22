@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		MapDisplay map = new MapDisplay("FOX FOX FOO");
+		MapDisplay map = new MapDisplay("Codename: Fox Fox Foo");
 		
 	}
 }
