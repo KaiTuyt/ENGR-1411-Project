@@ -117,9 +117,9 @@ public class MapDisplay extends JFrame implements ActionListener {
 			for (int i = 1; i <= amountOfPeople; i++) {
 				personCoordinates = new JPanel();
 				personLabel = new JLabel("<html><i>Person " + i + ": </i></hmtl>");
-
-				locationsBox = new JComboBox(locationsList.toArray());
-
+				
+				locationsBox = new JComboBox(locationsList.toArray()); //locationsList.toArray()
+				
 				personCoordinates.add(personLabel);
 				personCoordinates.add(locationsBox);
 				boxList.add(locationsBox);
@@ -149,12 +149,12 @@ public class MapDisplay extends JFrame implements ActionListener {
 				this.remove(item);
 			}
 
-			this.setSize(500, 450);
+			this.setSize(600, 450);
 			this.setVisible(true);
 			this.setResizable(false);
 			this.setLocationRelativeTo(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setLayout(new GridLayout(6, 0));
+			this.setLayout(new GridLayout(7, 0));
 
 			titlePanel.add(title);
 			this.add(titlePanel);
@@ -186,8 +186,11 @@ public class MapDisplay extends JFrame implements ActionListener {
 			
 			JPanel otherLocationsPanel = new JPanel();
 			otherLocationsPanel.add(besterLocation);
-			otherLocationsPanel.add(bestLocation);
 			this.add(otherLocationsPanel);
+			
+			JPanel otherOtherLocationsPanel = new JPanel();
+			otherOtherLocationsPanel.add(bestLocation);
+			this.add(otherOtherLocationsPanel);
 
 			buttonPanel.remove(calculateButton);
 			quitButton.addActionListener(this);

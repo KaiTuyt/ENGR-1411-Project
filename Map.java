@@ -63,7 +63,6 @@ public class Map {
 		campusLocations.put(new double[] {35.195879, -97.444747}, "OU Foundation");
 		campusLocations.put(new double[] {35.207184, -97.444566}, "Richards Hall");
 		
-		
 		campusLocations.put(new double[] {35.211735, -97.444785}, "Whitehand Hall");
 		
 		campusLocations.put(new double[] {35.209562, -97.445042}, "Monnet Hall");
@@ -74,7 +73,6 @@ public class Map {
 		campusLocations.put(new double[] {35.209009, -97.443296}, "Nuclear Engineering Laboratory");
 		
 		campusLocations.put(new double[] {35.207885, -97.443662}, "Michael F. Price Hall");
-		
 		
 		campusLocations.put(new double[] {35.208268, -97.442324}, "McCasland Field House");
 		campusLocations.put(new double[] {35.207099, -97.447505}, "Hester Hall");
