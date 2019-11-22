@@ -4,8 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//TODO: Implement this...
-		MapDisplay map = new MapDisplay("Map");
+		MapDisplay map = new MapDisplay("Fox Fox Foo");
 		
 	}
 }
