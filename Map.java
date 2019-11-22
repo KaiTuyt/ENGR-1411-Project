@@ -44,28 +44,38 @@ public class Map {
 		campusLocations.put(new double[] {35.206865, -97.446484}, "Gittinger Hall");
 		campusLocations.put(new double[] {35.205513, -97.444870}, "Gould Hall");
 		campusLocations.put(new double[] {35.208485, -97.448568}, "Goddard Health Center");
+		
+		campusLocations.put(new double[] {35.190115, -97.435175}, "Joseph K. Lester Police Headquarters");
+		campusLocations.put(new double[] {35.210428, -97.444940}, "Jacobson Faculty Hall");
+		campusLocations.put(new double[] {35.198638, -97.445768}, "Jim Thorpe Multicultural Center");
 		campusLocations.put(new double[] {35.206162, -97.446659}, "Kaufman Hall");
+		campusLocations.put(new double[] {35.208433, -97.443108}, "Lissa and Cy Wagner Hall");
 		campusLocations.put(new double[] {35.210792, -97.440442}, "Sarkeys energy center");
 		campusLocations.put(new double[] {35.209961, -97.444204}, "Union");
 		campusLocations.put(new double[] {35.209987, -97.444258}, "Quiznos");
-		campusLocations.put(new double[] {35.207289, -97.446609}, "Nielsen");
+		
 		campusLocations.put(new double[] {35.209562, -97.447279}, "Physical Sciences Centers");
+		campusLocations.put(new double[] {35.207289, -97.446609}, "Nielsen");
 		campusLocations.put(new double[] {35.202512, -97.443915}, "Observatory");
 		campusLocations.put(new double[] {35.208931, -97.446225}, "Old Science Hall");
-		campusLocations.put(new double[] {35.207184, -97.444566}, "Richards Hall");
-		campusLocations.put(new double[] {35.207217, -97.448262}, "Zarrow Hall");
 		campusLocations.put(new double[] {35.211834, -97.446430}, "Old Faculty Club");
-		campusLocations.put(new double[] {35.211735, -97.444785}, "Whitehand Hall");
-		campusLocations.put(new double[] {35.210428, -97.444940}, "Jacobson Faculty Hall");
-		campusLocations.put(new double[] {35.209562, -97.445042}, "Monnet Hall");
 		campusLocations.put(new double[] {35.209733, -97.444226}, "OMU Parking Center");
+		campusLocations.put(new double[] {35.195879, -97.444747}, "OU Foundation");
+		campusLocations.put(new double[] {35.207184, -97.444566}, "Richards Hall");
+		
+		
+		campusLocations.put(new double[] {35.211735, -97.444785}, "Whitehand Hall");
+		
+		campusLocations.put(new double[] {35.209562, -97.445042}, "Monnet Hall");
+		
 		campusLocations.put(new double[] {35.209233, -97.441985}, "Physical Plant Complex");
 		campusLocations.put(new double[] {35.208911, -97.447195}, "Sutton Hall");
 		campusLocations.put(new double[] {35.209270, -97.446229}, "Wallace Science Hall");
 		campusLocations.put(new double[] {35.209009, -97.443296}, "Nuclear Engineering Laboratory");
-		campusLocations.put(new double[] {35.198638, -97.445768}, "Jim Thorpe Multicultural Center");
+		
 		campusLocations.put(new double[] {35.207885, -97.443662}, "Michael F. Price Hall");
-		campusLocations.put(new double[] {35.208433, -97.443108}, "Lissa and Cy Wagner Hall");
+		
+		
 		campusLocations.put(new double[] {35.208268, -97.442324}, "McCasland Field House");
 		campusLocations.put(new double[] {35.207099, -97.447505}, "Hester Hall");
 		campusLocations.put(new double[] {35.206345, -97.447529}, "Robertson Hall");
@@ -91,17 +101,18 @@ public class Map {
 		campusLocations.put(new double[] {35.195963, -97.446683}, "Andrew M. Coats Hall");
 		campusLocations.put(new double[] {35.192328, -97.443452}, "Kraettli Apartments");
 		campusLocations.put(new double[] {35.195168, -97.442207}, "Women’s Softball Facility");
-		campusLocations.put(new double[] {35.195879, -97.444747}, "OU Foundation");
+		
 		campusLocations.put(new double[] {35.194508, -97.449047}, "Sam Noble Oklahoma Museum of Natural History");
 		campusLocations.put(new double[] {35.191031, -97.444110}, "Our Children’s World Learning Center");
 		campusLocations.put(new double[] {35.190957, -97.446072}, "L. Dale Mitchell Baseball Park");
 		campusLocations.put(new double[] {35.190400, -97.443793}, "Sam Viersen Gymnastics Center");
 		campusLocations.put(new double[] {35.191860, -97.433348}, "Charlie Coe Golf Learning Center");
 		campusLocations.put(new double[] {35.189914, -97.437843}, "Fears Structural Engineering Lab");
-		campusLocations.put(new double[] {35.190115, -97.435175}, "Joseph K. Lester Police Headquarters");
+		
 		campusLocations.put(new double[] {35.187714, -97.444058}, "Lloyd Noble Center");
 		campusLocations.put(new double[] {35.183880, -97.440321}, "Stephenson Research Center");
 		campusLocations.put(new double[] {35.181543, -97.439992}, "National Weather Center");
+		campusLocations.put(new double[] {35.207217, -97.448262}, "Zarrow Hall");
 	}
 
 	// This method returns the center location for a list of n locations.
