@@ -5,13 +5,13 @@ public class Map {
 
 	// This HashMap contains the location of each building on campus
 	HashMap<double[], String> campusLocations = new HashMap<double[], String>();
+	HashMap<double[], String> meetingLocations = new HashMap<double[], String>();
 
 	public HashMap<double[], String> getCampusLocations() {
 		return campusLocations;
 	}
 
 	public Map() {
-
 		campusLocations.put(new double[] {35.206976, -97.443820}, "Armory");
 		campusLocations.put(new double[] {35.207819, -97.444318}, "Adams Hall");
 		campusLocations.put(new double[] {35.208180, -97.445840}, "Bizzell");
@@ -50,17 +50,13 @@ public class Map {
 		campusLocations.put(new double[] {35.209987, -97.444258}, "Quiznos");
 		campusLocations.put(new double[] {35.207289, -97.446609}, "Nielsen");
 		campusLocations.put(new double[] {35.209562, -97.447279}, "Physical Sciences Centers");
-		
 		campusLocations.put(new double[] {35.202512, -97.443915}, "Observatory");
 		campusLocations.put(new double[] {35.208931, -97.446225}, "Old Science Hall");
 		campusLocations.put(new double[] {35.207184, -97.444566}, "Richards Hall");
 		campusLocations.put(new double[] {35.207217, -97.448262}, "Zarrow Hall");
 		campusLocations.put(new double[] {35.211834, -97.446430}, "Old Faculty Club");
 		campusLocations.put(new double[] {35.211735, -97.444785}, "Whitehand Hall");
-		
-		
 		campusLocations.put(new double[] {35.210428, -97.444940}, "Jacobson Faculty Hall");
-		
 		campusLocations.put(new double[] {35.209562, -97.445042}, "Monnet Hall");
 		campusLocations.put(new double[] {35.209733, -97.444226}, "OMU Parking Center");
 		campusLocations.put(new double[] {35.209233, -97.441985}, "Physical Plant Complex");
@@ -75,13 +71,11 @@ public class Map {
 		campusLocations.put(new double[] {35.206345, -97.447529}, "Robertson Hall");
 		campusLocations.put(new double[] {35.206616, -97.445243}, "George Lynn Cross Hall");
 		campusLocations.put(new double[] {35.206924, -97.444917}, "Noble Microscopy Laboratory");
-		
 		campusLocations.put(new double[] {35.205786, -97.443769}, "Asp Avenue Parking Facility");
 		campusLocations.put(new double[] {35.204193, -97.440333}, "Jefferson House Dormitory");
 		campusLocations.put(new double[] {35.204548, -97.439688}, "Collums Bldg");
 		campusLocations.put(new double[] {35.204490, -97.440797}, "Bud Wilkinson Dormitory");
 		campusLocations.put(new double[] {35.204586, -97.438280}, "Mosier Indoor Athletic Facility");
-		
 		campusLocations.put(new double[] {35.203312, -97.444969}, "David L. Boren Hall");
 		campusLocations.put(new double[] {35.202863, -97.443872}, "Henderson-Tolson Cultural Center");
 		campusLocations.put(new double[] {35.201670, -97.444954}, "Walker Tower");
@@ -121,7 +115,7 @@ public class Map {
 		return new double[] { xSum / locations.length, ySum / locations.length };
 	}
 
-	// This method returns the closest building to a center point of multiple
+	// This method returns the closest buildings to a center point of multiple
 	// locations.
 	public String closestBuilding(double[][] locations) {
 		// Finds the center locations
@@ -142,7 +136,9 @@ public class Map {
 			}
 		}
 
-		return campusLocations.get(closestBuildingLoc);
+		String location = campusLocations.get(closestBuildingLoc);
+		campusLocations.remove(closestBuildingLoc);
+		return location;
 	}
 
 	// This computes the distance between two points in (x, y)

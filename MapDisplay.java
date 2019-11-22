@@ -173,18 +173,20 @@ public class MapDisplay extends JFrame implements ActionListener {
 			}
 			
 			double[] center = map.center(coordinates);
-			String closestBuilding = map.closestBuilding(coordinates);
-			
-			JPanel panelPanel = new JPanel();
-			JLabel bestLocation = new JLabel("<html><h2>" + closestBuilding + "</h2></html>");
-			panelPanel.add(bestLocation);
-			this.add(panelPanel);
+			String closestBuilding1 = map.closestBuilding(coordinates);
+			String closestBuilding2 = map.closestBuilding(coordinates);
+			String closestBuilding3 = map.closestBuilding(coordinates);
 
-			JLabel latLocation = new JLabel("Latitude: " + center[0]);
-			locationPanel.add(latLocation);
-			JLabel longLocation = new JLabel("Longitude: " + center[1]);
-			locationPanel.add(longLocation);
+			
+			JLabel bestestLocation = new JLabel("<html><h2>" + closestBuilding1 + "</h2></html>");
+			JLabel besterLocation = new JLabel("<html><h2>" + closestBuilding2 + "</h2></html>");
+			JLabel bestLocation = new JLabel("<html><h2>" + closestBuilding3 + "</h2></html>");
+			locationPanel.add(bestestLocation);
+			locationPanel.add(besterLocation);
+			locationPanel.add(bestLocation);
 			this.add(locationPanel);
+			
+			this.add(new JPanel());
 
 			buttonPanel.remove(calculateButton);
 			quitButton.addActionListener(this);
