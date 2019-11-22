@@ -160,7 +160,7 @@ public class MapDisplay extends JFrame implements ActionListener {
 			this.add(titlePanel);
 
 			instructionBox.setEditable(false);
-			instructionBox.setText("This is the best meeting location for the group:");
+			instructionBox.setText("These are the best meeting locations for the group:");
 			instructionBox.remove(spinner);
 			instructionPanel.add(instructionBox);
 			this.add(instructionPanel);
@@ -178,15 +178,16 @@ public class MapDisplay extends JFrame implements ActionListener {
 			String closestBuilding3 = map.closestBuilding(coordinates);
 
 			
-			JLabel bestestLocation = new JLabel("<html><h2>" + closestBuilding1 + "</h2></html>");
-			JLabel besterLocation = new JLabel("<html><h2>" + closestBuilding2 + "</h2></html>");
-			JLabel bestLocation = new JLabel("<html><h2>" + closestBuilding3 + "</h2></html>");
+			JLabel bestestLocation = new JLabel("<html><h2>1st: " + closestBuilding1 + "</h2></html>");
+			JLabel besterLocation = new JLabel("<html><h3>2nd: " + closestBuilding2 + "</h3></html>");
+			JLabel bestLocation = new JLabel("<html><h3>3rd: " + closestBuilding3 + "</h3></html>");
 			locationPanel.add(bestestLocation);
-			locationPanel.add(besterLocation);
-			locationPanel.add(bestLocation);
 			this.add(locationPanel);
 			
-			this.add(new JPanel());
+			JPanel otherLocationsPanel = new JPanel();
+			otherLocationsPanel.add(besterLocation);
+			otherLocationsPanel.add(bestLocation);
+			this.add(otherLocationsPanel);
 
 			buttonPanel.remove(calculateButton);
 			quitButton.addActionListener(this);

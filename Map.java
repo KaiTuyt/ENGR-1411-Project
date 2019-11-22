@@ -12,7 +12,6 @@ public class Map {
 	}
 
 	public Map() {
-<<<<<<< HEAD
 		campusLocations.put(new double[] { 35.210985, -97.441888 }, "Devon Energy Hall");
 		campusLocations.put(new double[] { 35.210454, -97.441687 }, "EPF");
 		campusLocations.put(new double[] { 35.211080, -97.442668 }, "Carson");
@@ -153,7 +152,6 @@ public class Map {
 		campusLocations.put(new double[] { 35.208580, -97.445698 }, "Evans Hall");
 		campusLocations.put(new double[] { 35.208561, -97.444479 }, "Buchanan Hall");
 		campusLocations.put(new double[] { 35.207992, -97.447330 }, "Ellison Hall");
-=======
 		campusLocations.put(new double[] {35.210985, -97.441888}, "Devon Energy Hall");
 		campusLocations.put(new double[] {35.210454, -97.441687}, "EPF");
 		campusLocations.put(new double[] {35.211080, -97.442668}, "Carson");
@@ -219,11 +217,9 @@ public class Map {
 		campusLocations.put(new double[] {35.203312, -97.444969}, "David L. Boren Hall");
 		campusLocations.put(new double[] {35.202863, -97.443872}, "Henderson-Tolson Cultural Center");
 		campusLocations.put(new double[] {35.201670, -97.444954}, "Walker Tower");
->>>>>>> e8f26a9fbcba8fdb7c0a5b492752ba277e7824c6
 		campusLocations.put(new double[] { 35.207819, -97.444318 }, "Adams Hall");
 		campusLocations.put(new double[] { 35.205950, -97.442325 }, "Gaylord Family Oklahoma Memorial Stadium");
 		campusLocations.put(new double[] { 35.204621, -97.445099 }, "Gaylord Hall");
-<<<<<<< HEAD
 		campusLocations.put(new double[] { 35.204193, -97.440333 }, "Jefferson House Dormitory");
 		campusLocations.put(new double[] { 35.204548, -97.439688 }, "Collums Bldg");
 		campusLocations.put(new double[] { 35.204490, -97.440797 }, "Bud Wilkinson Dormitory");
@@ -257,7 +253,6 @@ public class Map {
 		campusLocations.put(new double[] { 35.183880, -97.440321 }, "Stephenson Research Center");
 		campusLocations.put(new double[] { 35.181543, -97.439992 }, "National Weather Center");
 		campusLocations.put(new double[] { 35.200454, -97.444759 }, "Couch Tower");
-=======
 		campusLocations.put(new double[] {35.201621, -97.444916}, "Huston Huffman Center");
 		campusLocations.put(new double[] {35.200701, -97.444841}, "Couch Center Cafeteria");
 		campusLocations.put(new double[] {35.198878, -97.444908}, "McCarter Hall of Advanced Studies");
@@ -280,7 +275,6 @@ public class Map {
 		campusLocations.put(new double[] {35.187714, -97.444058}, "Lloyd Noble Center");
 		campusLocations.put(new double[] {35.183880, -97.440321}, "Stephenson Research Center");
 		campusLocations.put(new double[] {35.181543, -97.439992}, "National Weather Center");
->>>>>>> e8f26a9fbcba8fdb7c0a5b492752ba277e7824c6
 	}
 
 	// This method returns the center location for a list of n locations.
